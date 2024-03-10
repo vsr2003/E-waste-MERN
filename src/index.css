@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* input{
+    border: 1px solid black;
+} */
+
+body{
+    /* background-color: #166534; */
+    font-family: gilroy;
+}

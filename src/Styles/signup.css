@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#signupdiv{
+    background-image: url(https://t3.ftcdn.net/jpg/05/71/39/80/240_F_571398064_RJ0HXgyRX0O6p5zq6P9dbwEJAEE7bzR9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+#signupdiv input{
+    border-radius: 20px;
+    padding: 3px;
+    margin: 5px;
+    color: black;
+    font-weight: 530;
+}
+
+#signupdiv input:hover{
+    box-shadow:11px 5px 15px 5px rgba(107, 248, 114, 0.8) ;
+}
+
+#signupdiv #formtag{
+    box-shadow:-11px -13px 38px 12px rgba(59, 241, 110, 0.8);
+}
+
+#signupdiv button:hover{
+    box-shadow: -2px 8px 8px rgb(57, 194, 66);
+}

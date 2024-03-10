@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#logindiv{
+    background-image: url(https://t3.ftcdn.net/jpg/05/71/39/80/240_F_571398064_RJ0HXgyRX0O6p5zq6P9dbwEJAEE7bzR9.jpg);
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+
+#logindiv input{
+    border-radius: 20px;
+    padding: 3px;
+    margin: 5px;
+    color: black;
+    font-weight: 530;
+}
+
+#logindiv input:hover{
+    box-shadow:11px 5px 15px 5px rgba(107, 248, 114, 0.8) ;
+}
+
+#logindiv #Loginform{
+    box-shadow:-11px -13px 45px 12px rgba(60, 198, 99, 0.9);
+}
+
+#logindiv button:hover{
+    box-shadow: -2px 8px 8px rgb(57, 194, 66);
+}
