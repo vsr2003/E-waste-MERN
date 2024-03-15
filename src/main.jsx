@@ -22,7 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 <AppContextProvider>
 <BrowserRouter>
-<ScrollToTop />
 <App />
 <ToastContainer position='top-center' />
 </BrowserRouter>

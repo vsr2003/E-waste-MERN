@@ -35,7 +35,7 @@ function Popup() {
     
     }
 
-    setInterval(changeContent, 15000);
+    // setInterval(changeContent, 15000);
 
     
     function changeContent()
@@ -47,9 +47,6 @@ function Popup() {
             setIndex(prevIndex => (prevIndex + 1) % popupData.length)
         }
     }
-
-    
-
   return (
     <div>
 
@@ -61,15 +58,15 @@ function Popup() {
                 transition={{duration:1, delay:.1, type:"spring"}}
              className=" fixed bg-white shadow-2xl w-[30vw] h-[30vh] rounded-lg bottom-[5vh] right-[5vw] border border-black ">
 
-                <div className=' w-full flex justify-end '> <button className='' onClick={()=> setShowPopup(!showPopup) } > <IoCloseOutline /> </button> </div>
+                <div className='flex justify-end w-full '> <button className='' onClick={()=> setShowPopup(!showPopup) } > <IoCloseOutline /> </button> </div>
 
                 <div>
-                    <h1 className=' font-semibold ml-2 '> {dataToShow.title} </h1>
+                    <h1 className='ml-2 font-semibold '> {dataToShow.title} </h1>
                     <motion.p
                         initial={{x:50,opacity:0}}
                         whileInView={{x:0,opacity:1}}
                         transition={{duration:1, delay:.1, type:"spring"}}
-                     className=' text-xs p-2 font-montserrat leading-none '> {dataToShow.description} </motion.p>
+                     className='p-2 text-xs leading-none font-montserrat'> {dataToShow.description} </motion.p>
                 </div>
                 
             </motion.div>

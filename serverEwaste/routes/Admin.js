@@ -3,11 +3,12 @@ const router = express.Router() ;
 
 const {addUserToReq,isAdmin} = require('../middlewares/auth') ;
 
-const {addEwasteDetails,addCategory} = require('../controllers/User');
+const {addEwasteDetails,addCategory,bulkEwasteAdd} = require('../controllers/User');
 
 
 router.post('/add_ewaste',addEwasteDetails);
 router.post('/addCategory',addCategory);
+router.post('/bulkEwasteAdd',bulkEwasteAdd);
 
 
 

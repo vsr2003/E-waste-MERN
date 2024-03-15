@@ -143,98 +143,61 @@ exports.addCategory = async (req,res) => {
 }
 
 // edit krna he abhi
-// exports.bulkEwasteAdd = async(req,res) => {
-//     try {
+exports.bulkEwasteAdd = async(req,res) => {
+    try {
 
-//         const {arrayOfDetails} = req.body ;
-
-
-//         for(const oneMetal of arrayOfDetails)
-//         {
-//             const {name,category,preciousMetals,modelNumber,greenPoints} = req.body ;
-
-//             //  some validations 
-//             if( !name || !category || !preciousMetals || !modelNumber || !greenPoints )
-//             {
-//                 return res.status(500).json({
-//                     success:false,
-//                     message:"Please fill all details of E-waste Carefully.",
-//                 })
-//             }
-
-//             // waste ko add karke id le lo
-//             const waste = await Wastes.create({
-//                 name:name,
-//                 category:category,
-//                 modelNumber:modelNumber,
-//                 greenPoints:greenPoints,
-//             });
-
-//             // jitne bhi precious metals he unko db me store karao fir waste me add kar do unki id
-//             for(const metal of preciousMetals)
-//             {
-//                 const addedMetal = await PreciousMetals.create({name:metal.name, weight:metal.weight});
-
-//                 await Wastes.findByIdAndUpdate(
-//                     {_id:waste._id},
-//                     {
-//                         $push:{ preciousMetals:addedMetal._id }
-//                     },
-//                     {new:true}
-//                 );
-//             }
-//         }
-
-//         //  some validations 
-//         if( !name || !category || !preciousMetals || !modelNumber || !greenPoints )
-//         {
-//             return res.status(500).json({
-//                 success:false,
-//                 message:"Please fill all details of E-waste Carefully.",
-//             })
-//         }
+        const {arrayOfDetails} = req.body ;
 
 
-//         // waste ko add karke id le lo
-//         const waste = await Wastes.create({
-//             name:name,
-//             category:category,
-//             modelNumber:modelNumber,
-//             greenPoints:greenPoints,
-//         });
+        for(const oneMetal of arrayOfDetails)
+        {
+            const {name,category,preciousMetals,modelNumber,greenPoints} = oneMetal;
 
+            //  some validations 
+            if( !name || !category || !preciousMetals || !modelNumber || !greenPoints )
+            {
+                return res.status(500).json({
+                    success:false,
+                    message:"Please fill all details of E-waste Carefully.",
+                })
+            }
 
-//         // jitne bhi precious metals he unko db me store karao fir waste me add kar do unki id
-//         for(const metal of preciousMetals)
-//         {
-//             const addedMetal = await PreciousMetals.create({name:metal.name, weight:metal.weight});
+            // waste ko add karke id le lo
+            const waste = await Wastes.create({
+                name:name,
+                category:category,
+                modelNumber:modelNumber,
+                greenPoints:greenPoints,
+            });
 
-//             await Wastes.findByIdAndUpdate(
-//                 {_id:waste._id},
-//                 {
-//                     $push:{ preciousMetals:addedMetal._id }
-//                 },
-//                 {new:true}
-//             );
-//         }
+            // jitne bhi precious metals he unko db me store karao fir waste me add kar do unki id
+            for(const metal of preciousMetals)
+            {
+                const addedMetal = await PreciousMetals.create({name:metal.name, weight:metal.weight});
 
-//         const wasteToReturn = await Wastes.findById(waste._id).populate("preciousMetals");
+                await Wastes.findByIdAndUpdate(
+                    {_id:waste._id},
+                    {
+                        $push:{ preciousMetals:addedMetal._id }
+                    },
+                    {new:true}
+                );
+            }
+        }
 
-//         console.log(wasteToReturn);
+    
+        return res.status(200).json({
+            success:true,
+            message:"Added Bulk Ewastes successfully",
+        })
 
-//         return res.status(200).json({
-//             success:true,
-//             message:"Added Ewaste successfully",
-//             waste:wasteToReturn
-//         })
-
-//     } catch (error) {
-//         return res.status(500).json({
-//             success:false,
-//             message:"Some error in addEwasteDetails handler ",
-//         }) 
-//     }
-// }
+    } catch (error) {
+        return res.status(500).json({
+            success:false,
+            message:"Some error in bulkEwasteAdd handler ",
+        }) 
+    }
+}
 
 
 
